@@ -1,0 +1,194 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1")
+    meta(name="description" content="")
+    meta(name="author" content="")
+    
+    title Tooplate's Little Fashion - Sign Up Page
+    
+    // CSS FILES
+    link(rel="preconnect" href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet")
+    link(href="css/bootstrap.min.css" rel="stylesheet")
+    link(href="css/bootstrap-icons.css" rel="stylesheet")
+    link(rel="stylesheet" href="css/slick.css")
+    link(href="css/tooplate-little-fashion.css" rel="stylesheet")
+    
+    //- Tooplate 2127 Little Fashion
+    //- https://www.tooplate.com/view/2127-little-fashion
+  body
+    .section.preloader
+      .spinner
+        span.sk-inner-circle
+
+    main(role="main")
+      .container
+        span.navbar-toggler-icon
+        
+        a.navbar-brand(href="/homepage") 
+          strong Family Guy
+        
+        .d-lg-none
+          a(href="/login").bi-person.custom-icon.me-3
+          a(href="/product-detail").bi-bag.custom-icon
+        
+        #navbarNav.collapse.navbar-collapse
+          ul
+            li: a.nav-link(href="/homepage") Home
+            li: a.nav-link(href="/about") About
+            li: a.nav-link(href="/products") Products
+            li: a.nav-link(href="/faq") FAQs
+            li: a.nav-link(href="/contact") Contact
+          
+          .d-none.d-lg-block
+            a(href="/login").bi-person.custom-icon.me-3
+            a(href="/product-detail").bi-bag.custom-icon
+
+      .site-header.section-padding.d-flex.justify-content-center.align-items-center
+        .container
+          .row
+            .col-lg-10.col-12
+              h1
+                span.d-block.text-primary We provide you
+                span.d-block.text-dark Fashionable Stuffs
+
+      .section.product-detail.section-padding
+        .container
+          .row
+            .col-lg-6.col-12
+              .product-thumb
+                img.img-fluid.product-image(src="images/product/evan-mcdougall-qnh1odlqOmk-unsplash.jpeg")
+            
+            .col-lg-6.col-12
+              .product-info.d-flex
+                div
+                  h2.product-title.mb-0 Tree pot
+                  p Original package design from house
+                span.small $25
+              
+              .product-description
+                strong Description
+                p Over three years in business, We've had the chance to work on a variety of projects, with companies
+              
+              .product-cart-thumb.row
+                .col-lg-6.col-12
+                  select
+                    option Quantity
+                    each val in [1, 2, 3, 4, 5]
+                      option= val
+                
+                .col-lg-6.col-12.mt-4.mt-lg-0
+                  button.btn Add to Cart
+                
+                .product-links
+                  a.product-additional-link(href="#") Details
+                  a.product-additional-link(href="#") Delivery and Payment
+
+      .section.related-product.section-padding.border-top
+        .container
+          .row
+            .col-12
+              h3.mb-5 You might also like
+            
+            each product in [
+              {
+                img: 'evan-mcdougall-qnh1odlqOmk-unsplash.jpeg',
+                alert: 'New arrival',
+                title: 'Tree pot',
+                desc: 'Original package design from house',
+                price: '$25'
+              },
+              {
+                img: 'jordan-nix-CkCUvwMXAac-unsplash.jpeg',
+                alert: 'Low Price',
+                title: 'Fashion set',
+                desc: 'Costume package',
+                price: '$35'
+              },
+              {
+                img: 'nature-zen-3Dn1BZZv3m8-unsplash.jpeg',
+                title: 'Juice Drinks',
+                desc: 'Nature made another world',
+                price: '$45'
+              }
+            ]
+              .col-lg-4.col-12.mb-3
+                .product-thumb
+                  a(href="/product-detail")
+                    img.img-fluid.product-image(src=`images/product/${product.img}`)
+                  .product-top.d-flex
+                    if product.alert
+                      span.product-alert.me-auto= product.alert
+                    a(href="#").bi-heart-fill.product-icon.ms-auto
+                  .product-info.d-flex
+                    div
+                      h5.product-title.mb-0
+                        a.product-title-link(href="/product-detail")= product.title
+                      p= product.desc
+                    span.small= product.price
+
+    footer.site-footer
+      .container
+        .row
+          .col-lg-3.col-10.me-auto.mb-4
+            h4.text-white.mb-3
+              a(href="/homepage") Family
+              |  Guy
+            p.copyright
+              | Copyright © 2024 
+              strong Family Guy
+            br
+            p
+              | Designed by 
+              a(href="/about" target="_blank")
+                strong Family Guy
+
+          .col-lg-5.col-8
+            h5.text-white.mb-3 Sitemap
+            ul.footer-menu
+              each link in ['About', 'Products', 'Privacy policy', 'FAQs', 'Contact']
+                li: a.footer-menu-link(href=link.toLowerCase() === 'about' ? '/about' : '#')= link
+
+          .col-lg-3.col-4
+            h5.text-white.mb-3 Social
+            ul.social-icon
+              each platform in ['youtube', 'whatsapp', 'instagram', 'skype']
+                li: a.social-icon-link(href="#" class=`bi-${platform}`)
+
+    #cart-modal.modal.fade(tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true")
+      .modal-dialog.modal-dialog-centered.modal-lg
+        .modal-content.border-0
+          .modal-header.flex-column
+          .modal-body
+            .row
+              .col-lg-6.col-12.mt-4.mt-lg-0
+                img.img-fluid.product-image(src="images/product/evan-mcdougall-qnh1odlqOmk-unsplash.jpeg")
+              .col-lg-6.col-12.mt-3.mt-lg-0
+                h3#exampleModalLabel.modal-title Tree pot
+                p $25
+                p
+                  | Quantity: 
+                  span.ms-1 4
+                p
+                  | Colour: 
+                  span.ms-1 Black
+                p
+                  | Size: 
+                  span.ms-1 S/S
+                .border-top.mt-4.pt-3
+                  strong
+                    | Total: 
+                    span.ms-1 $100
+          .modal-footer
+            .row.w-50
+              button.btn Checkout
+    // JAVASCRIPT FILES
+    script(src="js/jquery.min.js")
+    script(src="js/bootstrap.bundle.min.js")
+    script(src="js/Headroom.js")
+    script(src="js/jQuery.headroom.js")
+    script(src="js/slick.min.js")
+    script(src="js/custom.js")
