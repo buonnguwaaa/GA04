@@ -50,7 +50,11 @@ html(lang="en")
                                         .form-floating
                                             input#email.form-control(type="email" name="email" pattern="[^ @]*@[^ @]*" placeholder="Email address" required)
                                             label(for="email") Email address
-                                        
+
+                                        .form-floating.my-4
+                                            input#username.form-control(type="text" name="username" pattern="[a-zA-Z0-9]{4,15}" placeholder="Username" required)
+                                            label(for="username") Username
+
                                         .form-floating.my-4
                                             input#password.form-control(type="password" name="password" pattern="[0-9a-zA-Z]{4,10}" placeholder="Password" required)
                                             label(for="password") Password

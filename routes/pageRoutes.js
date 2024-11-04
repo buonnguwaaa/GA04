@@ -1,21 +1,28 @@
 const express = require('express');
 const pageRoutes = express.Router();
+const renderView = require('../helpers/renderView');
 
+// Home route
 pageRoutes.get('/', (req, res) => {
-    res.render('../views/homepage.pug');
-})
+    renderView('homepage', req, res);
+});
 
+// Explicit homepage route with session check
 pageRoutes.get('/homepage', (req, res) => {
-    res.render('../views/homepage.pug');
+    renderView('homepage', req, res);
 });
+
+// Other routes
 pageRoutes.get('/about', (req, res) => {
-    res.render('../views/about.pug');
+    renderView('about', req, res);
 });
+
 pageRoutes.get('/contact', (req, res) => {
-    res.render('../views/contact.pug');
+    renderView('contact', req, res);
 });
+
 pageRoutes.get('/faq', (req, res) => {
-    res.render('../views/faq.pug');
+    renderView('faq', req, res);
 });
 
 module.exports = pageRoutes;

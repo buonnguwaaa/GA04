@@ -1,11 +1,12 @@
 const express = require('express');
 const productRoutes = express.Router();
+const renderView = require('../helpers/renderView');
 
 productRoutes.get('/products', (req, res) => {
-    res.render('../views/products.pug');
+    renderView('products', req, res);
 });
 productRoutes.get('/product-detail', (req, res) => {
-    res.render('../views/product-detail.pug');
+    renderView('product-detail', req, res);
 });
 
 module.exports = productRoutes;

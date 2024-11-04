@@ -37,7 +37,12 @@ html(lang="en")
               |  Guy
 
           .d-lg-none
-            a.bi-person.custom-icon.me-3(href="/login")
+            if user && user.username
+              a.custom-icon.me-3(href="/profile") 
+                span.ms-1.fs-6= user.username
+                i.bi-person
+            else
+              a.bi-person.custom-icon.me-3(href="/login")
             a.bi-bag.custom-icon(href="/product-detail")
 
           #navbarNav.collapse.navbar-collapse
@@ -54,7 +59,12 @@ html(lang="en")
                 a.nav-link.active(href="/contact") Contact
 
             .d-none.d-lg-block
-              a.bi-person.custom-icon.me-3(href="/login")
+              if user && user.username
+                a.custom-icon.me-3(href="/profile") 
+                  span.ms-1.fs-5= user.username
+                  i.bi-person
+              else
+                a.bi-person.custom-icon.me-3(href="/login")
               a.bi-bag.custom-icon(href="/product-detail")
 
       .site-header.section-padding-img.site-header-image
