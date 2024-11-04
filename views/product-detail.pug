@@ -25,27 +25,36 @@ html(lang="en")
         span.sk-inner-circle
 
     main(role="main")
-      .container
-        span.navbar-toggler-icon
-        
-        a.navbar-brand(href="/homepage") 
-          strong Family Guy
-        
-        .d-lg-none
-          a(href="/login").bi-person.custom-icon.me-3
-          a(href="/product-detail").bi-bag.custom-icon
-        
-        #navbarNav.collapse.navbar-collapse
-          ul
-            li: a.nav-link(href="/homepage") Home
-            li: a.nav-link(href="/about") About
-            li: a.nav-link(href="/products") Products
-            li: a.nav-link(href="/faq") FAQs
-            li: a.nav-link(href="/contact") Contact
-          
-          .d-none.d-lg-block
-            a(href="/login").bi-person.custom-icon.me-3
-            a(href="/product-detail").bi-bag.custom-icon
+      nav.navbar.navbar-expand-lg
+        .container
+          button.navbar-toggler(type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation")
+            span.navbar-toggler-icon
+
+          a.navbar-brand(href="/homepage")
+            strong
+              span Family
+              |  Guy
+
+          .d-lg-none
+            a.bi-person.custom-icon.me-3(href="/login")
+            a.bi-bag.custom-icon(href="/product-detail")
+
+          #navbarNav.collapse.navbar-collapse
+            ul.navbar-nav.mx-auto
+              li.nav-item
+                a.nav-link(href="/homepage") Home
+              li.nav-item
+                a.nav-link(href="/about") About
+              li.nav-item
+                a.nav-link.active(href="/products") Products
+              li.nav-item
+                a.nav-link(href="/faq") FAQs
+              li.nav-item
+                a.nav-link(href="/contact") Contact
+
+            .d-none.d-lg-block
+              a.bi-person.custom-icon.me-3(href="/login")
+              a.bi-bag.custom-icon(href="/product-detail")
 
       .site-header.section-padding.d-flex.justify-content-center.align-items-center
         .container
@@ -87,48 +96,48 @@ html(lang="en")
                   a.product-additional-link(href="#") Details
                   a.product-additional-link(href="#") Delivery and Payment
 
-      .section.related-product.section-padding.border-top
-        .container
-          .row
-            .col-12
-              h3.mb-5 You might also like
+      //- .section.related-product.section-padding.border-top
+      //-   .container
+      //-     .row
+      //-       .col-12
+      //-         h3.mb-5 You might also like
             
-            each product in [
-              {
-                img: 'evan-mcdougall-qnh1odlqOmk-unsplash.jpeg',
-                alert: 'New arrival',
-                title: 'Tree pot',
-                desc: 'Original package design from house',
-                price: '$25'
-              },
-              {
-                img: 'jordan-nix-CkCUvwMXAac-unsplash.jpeg',
-                alert: 'Low Price',
-                title: 'Fashion set',
-                desc: 'Costume package',
-                price: '$35'
-              },
-              {
-                img: 'nature-zen-3Dn1BZZv3m8-unsplash.jpeg',
-                title: 'Juice Drinks',
-                desc: 'Nature made another world',
-                price: '$45'
-              }
-            ]
-              .col-lg-4.col-12.mb-3
-                .product-thumb
-                  a(href="/product-detail")
-                    img.img-fluid.product-image(src=`images/product/${product.img}`)
-                  .product-top.d-flex
-                    if product.alert
-                      span.product-alert.me-auto= product.alert
-                    a(href="#").bi-heart-fill.product-icon.ms-auto
-                  .product-info.d-flex
-                    div
-                      h5.product-title.mb-0
-                        a.product-title-link(href="/product-detail")= product.title
-                      p= product.desc
-                    span.small= product.price
+      //-       each product in [
+      //-         {
+      //-           img: 'evan-mcdougall-qnh1odlqOmk-unsplash.jpeg',
+      //-           alert: 'New arrival',
+      //-           title: 'Tree pot',
+      //-           desc: 'Original package design from house',
+      //-           price: '$25'
+      //-         },
+      //-         {
+      //-           img: 'jordan-nix-CkCUvwMXAac-unsplash.jpeg',
+      //-           alert: 'Low Price',
+      //-           title: 'Fashion set',
+      //-           desc: 'Costume package',
+      //-           price: '$35'
+      //-         },
+      //-         {
+      //-           img: 'nature-zen-3Dn1BZZv3m8-unsplash.jpeg',
+      //-           title: 'Juice Drinks',
+      //-           desc: 'Nature made another world',
+      //-           price: '$45'
+      //-         }
+      //-       ]
+      //-         .col-lg-4.col-12.mb-3
+      //-           .product-thumb
+      //-             a(href="/product-detail")
+      //-               img.img-fluid.product-image(src=`images/product/${product.img}`)
+      //-             .product-top.d-flex
+      //-               if product.alert
+      //-                 span.product-alert.me-auto= product.alert
+      //-               a(href="#").bi-heart-fill.product-icon.ms-auto
+      //-             .product-info.d-flex
+      //-               div
+      //-                 h5.product-title.mb-0
+      //-                   a.product-title-link(href="/product-detail")= product.title
+      //-                 p= product.desc
+      //-               span.small= product.price
 
     footer.site-footer
       .container

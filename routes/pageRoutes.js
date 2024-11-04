@@ -1,6 +1,10 @@
 const express = require('express');
 const pageRoutes = express.Router();
 
+pageRoutes.get('/', (req, res) => {
+    res.render('../views/homepage.pug');
+})
+
 pageRoutes.get('/homepage', (req, res) => {
     res.render('../views/homepage.pug');
 });
