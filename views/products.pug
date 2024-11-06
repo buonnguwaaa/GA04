@@ -93,8 +93,7 @@ html(lang="en")
                       h5.product-title.mb-0
                         a.product-title-link(href="/product-detail/" + item._id) #{item.title}
                       p   #{item.catego}
-                  
-                      span.small $#{item.price}
+                    small.product-price.text-muted.ms-auto.mt-auto.mb-5 $#{item.price}
 
               //- col-lg-4.col-12.mb-3
                 .product-thumb
