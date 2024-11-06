@@ -6,4 +6,4 @@ module.exports = function (app) {
     app.use(authRoutes);
     app.use(pageRoutes);
     app.use(productRoutes);
-}
+};

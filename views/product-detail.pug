@@ -12,10 +12,10 @@ html(lang="en")
     link(rel="preconnect" href="https://fonts.googleapis.com")
     link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
     link(href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;700;900&display=swap" rel="stylesheet")
-    link(href="css/bootstrap.min.css" rel="stylesheet")
-    link(href="css/bootstrap-icons.css" rel="stylesheet")
-    link(rel="stylesheet" href="css/slick.css")
-    link(href="css/tooplate-little-fashion.css" rel="stylesheet")
+    link(href="/css/bootstrap.min.css" rel="stylesheet")
+    link(href="/css/bootstrap-icons.css" rel="stylesheet")
+    link(rel="stylesheet" href="/css/slick.css")
+    link(href="/css/tooplate-little-fashion.css" rel="stylesheet")
     
     //- Tooplate 2127 Little Fashion
     //- https://www.tooplate.com/view/2127-little-fashion
@@ -77,20 +77,21 @@ html(lang="en")
       .section.product-detail.section-padding
         .container
           .row
+            
             .col-lg-6.col-12
               .product-thumb
-                img.img-fluid.product-image(src="images/product/evan-mcdougall-qnh1odlqOmk-unsplash.jpeg")
+                img.img-fluid.product-image(src="/" + product.img)
             
             .col-lg-6.col-12
               .product-info.d-flex
                 div
-                  h2.product-title.mb-0 Tree pot
-                  p Original package design from house
-                span.small $25
+                  h2.product-title.mb-0 #{product.title}
+                  p #{product.catego}
+                  span.small $#{product.price}
               
               .product-description
                 strong Description
-                p Over three years in business, We've had the chance to work on a variety of projects, with companies
+                p #{product.description}
               
               .product-cart-thumb.row
                 .col-lg-6.col-12
@@ -184,7 +185,7 @@ html(lang="en")
           .modal-body
             .row
               .col-lg-6.col-12.mt-4.mt-lg-0
-                img.img-fluid.product-image(src="images/product/evan-mcdougall-qnh1odlqOmk-unsplash.jpeg")
+                img.img-fluid.product-image(src="/images/product/evan-mcdougall-qnh1odlqOmk-unsplash.jpeg")
               .col-lg-6.col-12.mt-3.mt-lg-0
                 h3#exampleModalLabel.modal-title Tree pot
                 p $25
@@ -205,9 +206,9 @@ html(lang="en")
             .row.w-50
               button.btn Checkout
     // JAVASCRIPT FILES
-    script(src="js/jquery.min.js")
-    script(src="js/bootstrap.bundle.min.js")
-    script(src="js/Headroom.js")
-    script(src="js/jQuery.headroom.js")
-    script(src="js/slick.min.js")
-    script(src="js/custom.js")
+    script(src="/js/jquery.min.js")
+    script(src="/js/bootstrap.bundle.min.js")
+    script(src="/js/Headroom.js")
+    script(src="/js/jQuery.headroom.js")
+    script(src="/js/slick.min.js")
+    script(src="/js/custom.js")

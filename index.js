@@ -5,8 +5,7 @@ const path = require("path");
 const database = require("./config/database");
 const route = require("./routes/mainRoutes");
 const app = express();
-
-const port = 3000;
+require('dotenv').config();
 
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
@@ -29,6 +28,7 @@ app.use(
 
 route(app);
 
+const port = process.env.PORT;
 app.listen(port, () => {
   console.log(`App listening on port ${port}`);
 });
