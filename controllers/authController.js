@@ -1,5 +1,6 @@
 const User = require('../models/User');
 const md5 = require('md5');
+const renderView = require('../helpers/renderView');
 
 const register = async (req, res) => {
     let { email, username, password, confirm_password } = req.body;
@@ -8,14 +9,17 @@ const register = async (req, res) => {
     const existUsername = await User.findOne({ username });
 
     if (existEmail) {
-        return res.status(500).send('Email has already existed');
+        notificationMessage = "Email has already existed";
+        return renderView("register", req, res, { notificationMessage });
     }
     if (existUsername) {
-        return res.status(500).send('Username has already existed')
+        notificationMessage = "Username has already existed";
+        return renderView("register", req, res, { notificationMessage });
     }
 
     if (password !== confirm_password) {
-        return res.status(500).send('Invalid password confirmation');
+        notificationMessage = "Invalid password confirmation";
+        return renderView("register", req, res, { notificationMessage });
     }
 
     password = md5(password);
