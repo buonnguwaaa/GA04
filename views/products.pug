@@ -91,10 +91,10 @@ html(lang="en")
                   .product-info.d-flex
                     div
                       h5.product-title.mb-0
-                        a.product-title-link(href="/product-detail") #{item.title}
+                        a.product-title-link(href="/product-detail/" + item._id) #{item.title}
                       p   #{item.catego}
                   
-                    span.small $#{item.price}
+                      span.small $#{item.price}
 
               //- col-lg-4.col-12.mb-3
                 .product-thumb
@@ -134,7 +134,7 @@ html(lang="en")
             each item in products
               .col-lg-4.col-12.mb-3
                 .product-thumb
-                  a(href="/product-detail")
+                  a(href="/product-detail/" + item._id)
                     img.img-fluid.product-image(src=item.img)
                 
                   .product-top.d-flex
@@ -144,10 +144,9 @@ html(lang="en")
                   .product-info.d-flex
                     div
                       h5.product-title.mb-0
-                        a.product-title-link(href="/product-detail") #{item.title}
+                        a.product-title-link(href="/product-detail/" + item._id) #{item.title}
                       p #{item.catego}
-                  
-                    span.small $#{item.price}
+                    small.product-price.text-muted.ms-auto.mt-auto.mb-5 $#{item.price}
 
             //- .col-lg-4.col-12.mb-3
               .product-thumb
